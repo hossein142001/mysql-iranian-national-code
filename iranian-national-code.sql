@@ -27,7 +27,7 @@ BEGIN
             or (@NC8 not in ('1','2','3','4','5','6','7','8','9','0'))
             or (@NC9 not in ('1','2','3','4','5','6','7','8','9','0'))
             or (@NC10 not in ('1','2','3','4','5','6','7','8','9','0')) THEN
-		RETURN 1;
+		RETURN 0;
 	END IF;
 
 if (@NC='1111111111' OR
@@ -40,7 +40,7 @@ if (@NC='1111111111' OR
 			@NC='7777777777' OR
 			@NC='8888888888' OR
 			@NC='9999999999' )  THEN
-		RETURN 2;
+		RETURN 0;
 	END IF;
 
 
@@ -57,7 +57,7 @@ set @n = cast(@NC1 as UNSIGNED)*10 +
 
 	set @r = @n % 11 ;
 	if  NOT((@r = 0 AND @r = @c) OR (@r = 1 AND @c = 1) OR (@r > 1 AND @c = 11 - @r))  THEN
-		RETURN 3 ;
+		RETURN 0 ;
 	end IF;
 
 	RETURN @NC;
