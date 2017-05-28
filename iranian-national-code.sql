@@ -2,6 +2,8 @@ CREATE DEFINER=`root`@`%` FUNCTION `code_melli`(`code_melli`  varchar(10)) RETUR
     NO SQL
 BEGIN
 
+	SET @NC = code_melli;
+
 	IF (LENGTH(@NC) <> 10) THEN
 		RETURN 0;
 	END IF;
